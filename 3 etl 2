@@ -1,0 +1,77 @@
+
+Exercises - part 2
+The following task is performed in SSIS.
+
+1. Create a new project for Integration Services.
+
+2. Connect the data set with OLEDB to the master database and localhost server.
+
+3. Add a new package called database creation.
+
+4. Add Execute SQL Task and select localhost.master connection in the properties.
+
+5. In the SQL Statement, create a query that creates a new database named warehouse:
+
+if not exists (select name from sys.databases
+
+where name = 'Warehouse')
+
+Begin
+
+  CREATE DATABASE [Warehouse]
+
+END
+
+After entering the query, change BypassPrepare to False and validate with Parse Query.
+
+6. Execute Task and validate.
+
+7. Create another SQL Task that creates a table named Data:
+
+IF NOT EXISTS (select * from sys.objects where
+
+object_id = object_id ( '[dbo]. [Data]') )
+
+Begin
+
+  create table [dbo]. [Data] (
+
+    [id] [int] identity (1,1) not null,
+
+    [col1] [varchar] (250) null,
+
+    [col2] [varchar] (250) null,
+
+    constraint [pk_id] primary key clustered
+
+    (
+
+        [id] ASC
+
+    )
+
+    )
+
+END
+
+Verify, call and check (correct error).
+
+8. Use the Import Export Wizard to import the (1) XLSX dataset into the database.
+
+9. Add a new Data Flow Task and name it integration of source files.
+
+10. Add a connection to the MS SQL Server database containing the table created on the basis of the file from the previous point - the name of Data1SQL.
+
+11. Connect the (2) CSV (Flat File) dataset to SSIS - name of the File2CSV.
+
+12. Connect to SSIS the data set (3) XLSX (Excel File) - name File3XLSX.
+
+13. Connect the data set (4) TXT (Flat File) to SSIS - the name of the File4TXT.
+
+14. Create a table in the data warehouse named Data2 with three varchar (200) columns - k1, k2, k3.
+
+15. Add a new package named Dataflow. In the type package, add Data Flow and design passing data from CSV file to Data2 table.
+
+16. Create a new package named Dataflow2. In the package, add the Execute SQL Task, which will create a table named Year2010 with columns k1, k2 and k3 of varchar (200) type.
+
+17. Add the Data Flow component to the package named Dataflow2. In this component, create source data (Source Assistant) for the CSV set, Conditional Split (condition YEAR_DIMENSION == "2010") and attach it to the target table (Destination Assistant). Run the package and check the result.
