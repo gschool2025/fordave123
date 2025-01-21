@@ -1,0 +1,98 @@
+Exercises with data importing
+PART III. CREATING A MULTI-DIMENSIONAL STRUCTURE IN A RELATIONAL MODEL
+
+A short theoretical introduction.
+
+1. Display the table contents
+
+SELECT * FROM table_name
+
+where * can be replaced with column names, e.g. select pk_place_id from Baza$
+
+Attention! If you want the values to be duplicate-free, use the DISTINCT keyword, e.g.
+
+SELECT DISTINCT pk_time_id, value FROM Table
+
+Then, even if there is repetitive data in the source table, it will not be displayed. This is important if the data is to be included in dimension tables, where primary keys must be unique.
+
+2. Create a new table based on the existing one
+
+SELECT * INTO NewTable FROM table_name
+
+3. Delete the existing table
+
+Right click on the table - delete
+
+or
+
+DROP TABLE NewTable
+
+4. Creating a primary key on the table
+
+Attention! The primary key must be of type NOT NULL. So first you need to change the column type to not null:
+
+alter table table_name alter column column_name data_type not null
+
+E.g.
+
+alter table time alter column time_id_pk float not null
+
+and then you need to create the primary key:
+
+alter table table_name add primary key (column_name)
+
+e.g.
+
+alter table time add primary key (pk_time_id)
+
+5. Create a new table
+
+CREATE TABLE table_name
+
+( column_name data_type [ PRIMARY KEY ],
+
+column_name data_type,
+
+…,
+
+foreign key_column_name data_type (column_name) references table_name(column_name)
+
+e.g.
+
+CREATE TABLE TFAKT (
+
+[ID_TIME_FK]
+
+FLOAT FOREIGN KEY (ID_TIME_FK) REFERENCES TIME(ID_TIME_PK)
+
+,[VALUE] FLOAT)
+
+6. Importing data into an existing table
+
+INSERT INTO table_name
+
+SELECT columns FROM source_table
+
+E.g.
+
+INSERT INTO TFACT
+
+SELECT pk_time_id, value FROM Base$
+
+TASKS
+
+Task 1. Split the imported table into dimension tables.
+
+Use the approach from point two, i.e. select columns into dimension_table from source_data
+
+Task 2. Put the keys on the dimension tables.
+
+Be sure to change the column type to NOT NULL and then create primary keys.
+
+Task 3. Create a fact table.
+
+Use the CREATE TABLE syntax with references to dimension tables (point 5).
+
+Task 4. Import data into the fact table.
+
+Use the INSERT command from point 6.
