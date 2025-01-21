@@ -1,0 +1,17 @@
+Exercises - part 4
+1. Prepare a navigation panel that will refer to reports and allow navigation between them.
+
+2. Modify the title of the report using the RDL file for this purpose.
+
+3. Using the available RDL file settings, add a new single-choice parameter named ShowTitle to each of the reports, Yes or No, respectively, Yes by default.
+
+4. Set the option of graph title visibility in one of the reports, depending on the added button.
+
+5. Repeat steps 3 and 4 using the RDL file.
+
+6. Connect to any data set and prepare reports using at least 3 variables.
+
+7. Find the previously added variables in the RDL file and change their names.
+
+8. Change the margins in the RDL file, leaving 1cm on each side. Repeat for two other reports.
+
