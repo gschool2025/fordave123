@@ -1,0 +1,46 @@
+Exercises with data design
+Measure - a quantitative feature
+
+Dimension - a qualitative feature
+
+Example: Sales by voivodeship, year, product group
+
+Sales are a measure
+
+Voivodeship, year, product group are dimensions
+
+The measures are included in the fact table in the center of the star diagram.
+
+The dimensions are included in the dimension tables outside the star diagram.
+
+Task 1. What is a measure and what is a dimension?
+
+Product name
+
+Product description
+
+Product size
+
+product price
+
+Total number of units of the product sold
+
+Total value received for goods sold
+
+The name of the region in which the product was sold
+
+Code of the region in which the product was sold
+
+Year of sale
+
+Product type
+
+Unit of measure
+
+Task 2. Prepare a star diagram in a multidimensional model describing the following case.
+
+The manager would like to obtain information about the company's condition in terms of sales of clothing products imported by his company. The presented reports would present the situation of the company divided into the towns where the goods are sold, the months in which they are sold and detailed information on the products. Sales would be displayed in monetary and quantitative values (pieces, kg, etc.).
+
+Task 3. What is the most important feature of a data warehouse?
+
+
