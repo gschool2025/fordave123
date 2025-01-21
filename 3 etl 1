@@ -1,0 +1,24 @@
+Exercises - part 1
+1. Import a dataset named Table into the database.
+
+2. Add a Data Flow named Data Conversion.
+
+3. Add a table from the database as a source of data (Source Assistant).
+
+4. Select only data from 2013 (Conditional Split for the condition [year] == "2013").
+
+5. Convert the code k1 from character type to Unicode character (Data Conversion).
+
+6. Change the k1 column to a short code that will transmit the first three characters of the code (Derived Column).
+
+7. Sort the data set by value (Sort).
+
+8. Load all the data into the table named Data_conversion (Destination Assistant).
+
+9. Perform a Data Flow named Data Conversion for 2012, 2011 and 2010.
+
+10. Create a new package named Part1_2.
+
+11. In the new package, use the task named Execute SQL to assign a key-value pair for k1 (values ​​cannot repeat):
+
+k_id (three characters) code (full number of characters)
