@@ -1,0 +1,96 @@
+Exercises with staging area
+PART II. IMPORTING DATA TO THE OPERATIONAL BASE
+
+
+
+Task 1. Download data from the data repository:
+
+1) File file.xls
+
+2) File file.csv
+
+
+
+Task 2. Create staging area
+
+Launch MS SQL Server Management Studio.
+
+Log in to the database:
+
+· Server name: localhost
+
+· Authentication: Windows Authentication
+
+· User name: (local username) ·
+
+Expand the server branch, right click on Databases - New database.
+
+Database name: StagingArea
+
+Task 3. Import MS Excel data into the operational database.
+
+Run the SQL Server Import and Export Data utility.
+
+During the Choose a Data Source stage:
+
+· Data source: MS Excel
+
+· Excel file Path à Browse à file downloaded in step 1
+
+· Column names in the first data row (to be checked)
+
+During the Choose a Destination stage:
+
+· Destination: SQL Server Native Client (any version)
+
+· Server name: localhost
+
+· Authentication:
+
+o Use Windows Authentication
+
+· Database
+
+o choose the one created in task 2
+
+Later stages:
+
+· Copy data from one or more tables or views
+
+· In Tables and Views, select the sheet name ending with $
+
+· Remains default values until Finish is pressed.
+
+Task 4. Import data from the CSV file into the operational database.
+
+· Data source: Flat file source
+
+· File Path à Browse à CSV file downloaded in step 1
+
+· Column names in the first data row (to be checked)
+
+· Change the separator to a semicolon
+
+· Check in Columns or Preview that all values are correct.
+
+Task 5. Compare the imported data from the CSV and XLS files.
+
+Enter MS SQL Server Management Studio.
+
+Expand the Tables branch on the left, then expand the imported tables and check the data types for the columns. What are these data types?
+
+Attention! If you don't see the tables, press Refresh on Tables (right mouse button).
+
+Task 6. Display the contents of tables from the XLS and CSV files.
+
+Enter MS SQL Server Management Studio.
+
+Tables - Table name -> Select TOP 1000 ROWS
+
+Task 7. Indicate the measures and dimensions in the table.
+
+Task 8. Suggest dividing the tables into a multidimensional model.
+
+1. How many dimension tables should be created and what should their names be?
+
+2. How many fact tables should be created and what names can be assigned?
