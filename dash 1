@@ -1,0 +1,13 @@
+1. Import the data into the product sales table (BI database, Sales table name).
+
+2. Prepare a sales statement in the form of:
+
+2a. tabular - products, product category, city and province, date and net sale price, discount and price for the whole;
+
+2b. matrix - product category (bilingual), measurement unit (bilingual), city and province, month of sale and payment amount.
+
+3. Add a report header (title) and footer.
+
+4. In the matrix chart, add a selectable parameter named language, with two possible values PL and EN.
+
+5. Use the parameter added in point 4 to change the language version of the report - report title, column headings and bilingual columns.
