@@ -1,0 +1,18 @@
+Exercises - part 3
+1. Connect to a relational set or prepare a multidimensional cube from a data set and deploy it on the server.
+
+2. Add a new blank report named Lab3_W1.
+
+3. Within the blank report named Lab3_W1, include a column chart showing the amount obtained from the sale of products in each month.
+
+4. In the new report named Lab3_W2, include a pie chart showing the structure of the amount obtained from sold products.
+
+5. Add a qualitative report that allows you to view the results by years, months and days - a report called Lab3_W3.
+
+6. Prepare a data set that allows filtering data by product name.
+
+7. Prepare an indicator that will allow you to monitor revenues from sales of products month by month Lab3_W4.
+
+8. Similarly as before, add a bar chart showing the amounts of sales of individual Lab3_W5 products.
+
+9. Create a control panel that allows you to switch between created reports.
