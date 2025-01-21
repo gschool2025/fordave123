@@ -1,0 +1,46 @@
+Normal form vs. denormalized - short example
+student first name | last name | course | grade
+
+Adam | Smith  | Introduction to Business Intelligence | 5
+
+Adam | Smith  | Business Informatics Fundamentals | 3.0
+
+Ann | Johnson | Introduction to Business Intelligence | 3.5
+
+Ann | Johnson | Business Informatics Fundamentals | 4.5
+
+
+
+STUDENT
+
+1 Adam Smith
+
+2 Ann Johnson
+
+
+
+COURSE
+
+1 Introduction to Business Intelligence
+
+2 Business Informatics Fundamentals
+
+
+
+TIME
+
+1 | 2023 | 10 | 18
+
+
+
+GRADE FACT TABLE
+
+time id | course id | student id | grade
+
+1 | 1 | 1 | 5
+
+1 | 1 | 2 | 3.0
+
+1 | 2 | 1 | 3.5
+
+1 | 2 | 2 | 4.5
