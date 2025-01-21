@@ -1,0 +1,914 @@
+1st attribute: data warehouse is concentrated on specific one topic (subject oriented, most common being sales) 
+ 
+
+2nd  attribute on-volatile: once data is loaded into data warehouse it cannot be changed (in spreadsheets you can delete, but with data warehouse it must be the final data, complete, high quality) 
+
+ 
+
+you have to reprocess everything if a mistake is made, no mistakes allowed 
+
+ 
+
+3rd attribute: data integration (different courses – CRM, ERP, WFM, etc) 
+
+ 
+
+4th attribute: time stamp (data is stored in time series, he said – good for forecasting) 
+
+ 
+
+tech: Visual Studio & Oracle Warehouse Builder 
+
+ 
+
+could have to answer during a thesis defense what a data warehouse is, not just exam 
+
+ 
+
+ETL: Extraction, Transformation, Loading 
+
+ 
+
+SSIS is how you handle ETL 
+ 
+
+data mart is a smaller data warehouse dedicated to a specific subsection of a company for example 
+
+ 
+
+review ‘data warehouse at a glance’ slide for all components, we will do them all this semester 
+
+ 
+
+- data sources → enterprise data warehouse → BI analytics → users 
+
+ 
+
+database is a TRANSACTION SYSTEM, data warehouse is an ANALYTICAL system 
+
+ 
+
+data warehouses are for example aggregates of invoices, whereas databases get into the details on specific invoices w/ details 
+
+ 
+
+OLTP On Line Transaction Processing 
+
+OLAP On Line Analytical Processing 
+
+Entering, updating, deleting data and queries, single transactions 
+
+Inquiries, aggregate transactions 
+
+current 
+
+Current and historical 
+
+3NF – 3 Normal Form 
+
+Multi-dimensional design (usually star or snowflake schema) 
+
+ 
+
+Next week we study STAR schema, not snowflake schema 
+
+ 
+
+characteristics of data in the data warehouse: has to be fitted to the business structure from multiple sources, updated/maintained, expressed in simple economic terms and aggregated for quick analysis 
+
+ 
+
+metadata layers of data warehouse can be whatever amount you want (example: microdata layer – receipts, microaggregates layer – weekly data, macroaggregates – monthly data) 
+
+ 
+
+-why add hierarchy? For security access by different user types, speed, etc 
+
+ 
+
+metadata is data about data (shows location, etc) 
+
+ 
+
+ two types of data warehouses: thematic (= data marts) or corporate (= central) 
+
+ 
+
+basically does your company have subsections? 
+ 
+thematic/data marts type of data warehouse with subsections has two subtypes: dependent (can be integrated) or independent (cannot be integrated) 
+
+ 
+
+corporate covers course of processes in the company to support later decision-making 
+
+ 
+
+sources → ETL → central data warehouse → reporting/analysis 
+
+ 
+
+thematic data warehouse = data mart = small data warehouse = data store, used for specfific departments/branches/geographic locations 
+
+ 
+
+dependent harder to create, dependent requires integration of all data warehouses (research this more, he wasn’t clear) 
+
+ 
+
+google drill-down data analysis as a matter of curiosity (used as application of thematic data warehouses, gotta configure for that tho) 
+
+ 
+
+FOUR RULES FOR IMPLEMENTATION: thematic data warehouses should be a component of the data warehouse, thematic data warehouses should not be used for direct access to data (need layers of the data for specific users), thematic data warehouses should not used for entities in which there are local business rules or where there’s a need to integrate local data, costs/benefits of data marts vs traditional direct access wholesaler 
+
+ 
+
+data warehouse suppliers: Microsoft, Oracle, Teradata (popular USA as most innovative SQL), SAS, Apache 
+
+ 
+
+Azure can be used for the ETL phase, SQL can be used for building data warehouses 
+
+ 
+
+2024.10.11 
+
+ 
+
+MS SQL Server 2019 Developer (free, can use newer version if you’d like), MS SQL Server Management Studio, MS Visual Studio Community (version with Data Tools – sign in with university account @ aka.ms/devtoolsforteaching – do this at home) 
+
+ 
+
+two types of columns in MS apps: measure: quantitative feature, dimension: qualitative feature 
+
+ 
+
+STAR diagram – in center is ‘fact table’, and it has ‘dimensions’ outside (product, customer, fact, promotion, time, etc)  - can have 4 or 5 points 
+
+ 
+
+other schemas can have multiple fact tables 
+
+ 
+
+measure 1500, description (Poland, fruits, kg) 
+
+ 
+
+dimension tables measure 
+
+ 
+
+example dimensions: product name, product description, product size (S/M/L/etc. Numbers not useful like shoe size 39, no need for average - dimension), product price (it is measure – a changing /fluctuating factor), total units of product sold (measure), total value received (measure), code of region of sale (dimension), year of sale (dimension), product type (dimension), year of sale (dimension), product type (dimension), unit of measure (dimension) 
+
+ 
+
+1 FACT TABLE 
+
+ 
+
+id product FK 
+
+id region FK 
+
+id time FK 
+
+id measure unit FK 
+
+value 
+
+ 
+
+4 DIMENSION TABLES 
+
+ 
+
+PRODUCT 
+
+id product PK, clothing product, product category, product size 
+
+ 
+REGION 
+
+id region PK 
+
+voivodeship 
+
+town 
+
+ 
+TIME 
+
+id time PK 
+
+year 
+
+quarter 
+
+month 
+
+ 
+
+MEASURE UNIT 
+
+id mu PK 
+
+measure unit 
+
+multiplier 
+
+ 
+
+measures: sales 
+
+ 
+
+primary key – no null values allowed, unique identifiers (as an example, if a product has the same name year to year like a phone or something but upgrades with new components and is thus a different product, it needs one of these unique primary keys) 
+
+ 
+
+foreign key – records in child tables have a corresponding association in another table 
+
+ 
+
+in STAR model, foreign keys present in the dimensions tables all tie in to the primary keys in the 1 fact table 
+
+ 
+
+data warehouses cannot have data changed, are used primarily in business 
+
+ 
+
+type SSMS (SQL Server Management Studio), server name is .\SQLEXPRESS (local for today, cannot do a data warehouse with it but will be able to prepare data with it at least, will do another next class once Microsoft is configured), database name is DW_S4220 (this is our group name) 
+
+ 
+
+there’s a SQL Server 64bit import export thingy 
+
+ 
+
+if file is open in Excel, you cannot import into the database in SQL 
+
+ 
+
+Object Explorer dropdown menu, right click group with little black thing > task > import data, open the wizard, go to Excel, choose the file, choose destination as SQL server native client, 
+
+ 
+
+CSV file means comma separated values 
+
+ 
+
+fact keys number = number of dimension tables 
+
+ 
+
+in Poland data cannot be separated with comma due to decimal being a comma in numbers (22.2 vs 22,2), they separate with semi-colon ; 
+
+ 
+
+click group > task > import data > flat file source > select file (filter file type for .csv) > select column delimiter as category ‘semicolon’ 
+
+ 
+
+flat files are always faster than Excel to import 
+
+ 
+
+float is a number, google float 
+
+ 
+
+variable characters, numbers (google SQL types for numbers) 
+
+ 
+
+varchar means that text varies up to 50 characters 
+
+ 
+
+nvarchar is unicode 
+
+ 
+
+Excel is structured, CSV is semi-structured 
+
+ 
+
+there are ways to convert text to number with SQL commands, CSV can be converted to be like Excel 
+
+ 
+
+Source$ is Excel 
+
+ 
+
+source$ > select top1000 rows > you can delete that part so that it only says ‘SELECT’ to get full data 
+
+ 
+
+WRITE minus minus - - (with no spaces) to make a comment (which won’t be interpreted by the program) in SQL 
+
+ 
+
+measure unit always used in data warehouses: things like PLN, pieces 
+
+ 
+
+many data warehouses have a ‘variable’ dimension table, flexible category and can put anything in this really 
+
+ 
+
+check images on phone to see history of how to update the number of rows to be greater by editing the text to include blue text ‘FROM’ and ‘SELECT DISTINCT’ 
+
+ 
+
+use ‘INTO’ command (dimension type)_DIM is standard naming procedure for what to write after ‘INTO’ 
+
+ 
+
+to execute command, make sure to highlight from green comments or ‘SELECT DISTINCT’ until ‘FROM’ line 
+
+ 
+
+‘DROP TABLE’ command can delete tables, or you can right click from the left side Object Explorer menu 
+
+ 
+
+changing columns to not-nullable 
+
+ 
+
+-primary keys are necessary to link to the fact key to get to the main fact table 
+
+ 
+
+‘GO’ means execute everything in the lines above to HARD STOP THE SCRIPT FROM EXECUTING ALL SCRIPTS AT THE SAME TIME 
+
+ 
+
+goal of ‘ALTER TABLE’ and ‘ALTER COLUMN’ and ‘ADD PRIMARY KEY’ is to make the columns ‘not null’ because you cannot make make a fact table (containing primary keys, foreign keys are the children) 
+
+ 
+
+ALTER TABLE (name of dimension)_DIM (copy photo) 
+
+ 
+
+YOU CANNOT DEFINE A PRIMARY KEY ON A NULLABLE COLUMN (scripts are to disallow null data) 
+
+ 
+
+Oracle Virtual Box – run a Windows environment from Ubuntu 
+
+ 
+
+sqlserver developer is on Linux 
+
+ 
+
+25.10 
+
+ 
+
+.\kie_admin 
+
+student 
+
+ 
+
+today have data warehouse fully available for users 
+
+ 
+
+search 
+
+ 
+
+sql server developer basic > yes > accept > install 
+
+ 
+
+download visual studio community edition free 
+
+ 
+
+add extensions to visual studio – microsoft analysis services projects 2022 
+
+ 
+
+sql server 2022 installation center > installation > new sql server standalone > itl’l be up to date > click next (once or twice, cant remember, important menu is next step) > add features to existing instance > MSSQLSERVER (to deploy data warehouse, express isnt enough) > do without cloud > choose analysis services (for data warehouse) > next > next > multidimensional mode > add current user > next > install 
+
+ 
+
+open ssms > custom type server as . or localhost > right click Databases > create database DW_S4220 > right click it > tasks > import “Data Source XLS” file from Education to database with all default options > choose data source Excel > set destination as sql server native client > click next until checkbox ‘Source$’ > next until Finish, then close 
+
+ 
+
+Microsoft OLE DB can be used at home but slower 
+
+ 
+
+INSERT INTO TFACT – execute only once 
+
+SELECT  
+ID_TIME_FK, 
+ID_REGION_FK, 
+
+ID_VARIABLE_FK, 
+
+ID_MEASURE_FK, 
+[VALUE] 
+
+FROM Source$ 
+ 
+select count(*) from tfact 
+
+ 
+
+-------------------------------------------------------------------------------------------------- 
+
+ 
+
+new project > analysis services multidimensional project > DW_S4220_LAB3 
+
+ 
+
+data sources > new data source > next > create based on existing connection > new > server ./localhost/ 
+
+ 
+
+impersonation information cmd whoami + psw 
+
+ 
+
+data source views (new) > select the one > next > double click TFACT (itll move to the right) > click add related tables (all will mover to tge included objects section) 
+
+ 
+
+new cube > use existing tables > tfact (measures, not dimensions are in the tfact table, or click suggest and itll ai) > next > deselect tfact count > click next until finish (it generates a star schema!) 
+
+ 
+
+right click the new DW_S4220 under cube folder > process > click whatever buttons make it happen > new window pops up, click run > then close 
+
+ 
+
+browser (far right in the upper tabs) > open measures and click and drag value > click and drag ID TIME PK > click and drag ID VARIABLE PK 
+
+ 
+
+excel > data > get data > from database > from analysis services > server name . > next until Finish > pivottable report 
+
+ 
+
+go back to visual studio, double click region dim > drag and drop from right column data source view to left column attributes everything except the id (since it is already present), save after each one > process at the end 
+
+ 
+
+in excel > right click pivottable popup window > drag pivot table columns(year), pivot table rows (variable name), pivot values (value) 
+
+ 
+
+in the properties menu of each pk variable, attributehierarchyvisible set to false 
+
+ 
+
+DOUBLE CLICK TO SWITCH BETWEEN ITEMS IN THE SOLUTION EXPLORER 
+
+ 
+
+it is the guide with exercise 1 to 10 
+
+ 
+
+aggregating two measures units is bad (like, zloty unit vs number of pencils 
+
+ 
+
+measure dim > is aggregatable (false) > do dot menu defaultmember > choose a member to be the default > pcs > process the cube with ‘Process’ 
+
+ 
+
+refresh excel table, right click third or so one download 
+
+ 
+
+double click the DW cube, then click perspectives from the upper menu, then the third icon from the right above the tables to add two new perspectives, name them Products then Regions, then deselect from products region dim, measure dim, deselect from regions variable dim, measure dim 
+
+ 
+
+new sheet > data > get data > (same as above) > . > products > Finish 
+
+ 
+
+in visual studio, write translations, choose a country, label the features the same as default language but without dim 
+
+ 
+
+do same pivot table in new excel sheet 
+
+ 
+
+go get measure symbol, it’s normally hidden, with above command 
+
+ 
+
+DO NOT DELETE PRIMARY KEY, HIDE IT 
+
+ 
+
+08.11 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Create primary keys 
+
+ 
+
+Then fact table 
+
+ 
+
+ 
+
+Checkpoint is the four Air_ tables 
+
+ 
+
+ 
+
+-- STEP 1. Find the open dataset, download CSV and import into Database. 
+
+-- STEP 2. creating the structure of tables 
+
+  
+
+-- Airport 
+
+create table Air_Airport (  
+
+id_airport int identity(1,1) primary key, -- autoincrement 1 by 1 
+
+airport_name varchar(100), 
+
+airport_code_1 varchar(4), 
+
+airport_code_2 varchar(3), 
+
+country varchar(100), 
+
+city varchar(100)) 
+
+  
+
+--Transport 
+
+create table Air_Transport ( 
+
+id_transport int identity(1,1) primary key, 
+
+transport_type varchar(100)) 
+
+  
+
+--Time  
+
+create table Air_Time ( 
+
+id_time int identity(1,1) primary key, 
+
+time_period varchar(20), 
+
+[year] varchar(4), 
+
+[month] varchar(2), 
+
+[month_name] varchar(20), 
+
+[quarter] varchar(1), 
+
+[quarter_name] varchar(20)) 
+
+  
+
+--Fact table 
+
+create table Air_Fact ( 
+
+id_time int foreign key (id_time) references air_time(id_time), 
+
+id_airport int foreign key (id_airport) references air_airport(id_airport), 
+
+id_transport int foreign key (id_transport) references air_transport(id_transport), 
+
+measure numeric(20)) --measure is maximum 20 digits - so from 0 to 9999999999999999999 
+
+  
+
+SELECT * 
+
+FROM [DW_S4220].[dbo].[estat_avia_paoa_filtered_en] 
+
+ 
+
+--------------------------- 
+
+ 
+
+Step 3 is to create the data warehouse 
+
+ 
+
+This step is the generic approach for importing data into tables 
+
+ 
+
+We have to fill the data in the table at the bottom later 
+
+ 
+
+ 
+
+This makes the data not repeat 
+
+ 
+
+Do not execute insert into air_airport more than once!!!!!!!!!!!!!!! Write it as a note and don’t highlight the - - that makes it a note to run it. The - - is so that it isn’t imported twice if highlighting everything in the future 
+
+ 
+
+ 
+
+ 
+
+Tied to varchar number here when setting up be careful 😉 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Wrong mistake here, sometimes datasets come with flaws, here’s how to delete the above aka ‘data cleansing’. In final project if not sure on own, don’t delete data haha 
+
+ 
+
+ 
+
+ 
+
+Alt shift down to WRITE IN MULTIPLE ROWS AT ONCE  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+select * from air_time checkpoint  
+
+ 
+
+Linking tables  
+
+ 
+
+check columns in the above table match up with left 
+
+ 
+
+ 
+
+-- STEP 1. Find the open dataset, download CSV and import into Database. 
+
+-- STEP 2. creating the structure of tables 
+
+  
+
+-- Airport 
+
+create table Air_Airport (  
+
+id_airport int identity(1,1) primary key, -- autoincrement 1 by 1 
+
+airport_name varchar(100), 
+
+airport_code_1 varchar(4), 
+
+airport_code_2 varchar(3), 
+
+country varchar(100), 
+
+city varchar(100)) 
+
+  
+
+--Transport 
+
+create table Air_Transport ( 
+
+id_transport int identity(1,1) primary key, 
+
+transport_type varchar(100)) 
+
+  
+
+--Time  
+
+create table Air_Time ( 
+
+id_time int identity(1,1) primary key, 
+
+time_period varchar(20), 
+
+[year] varchar(4), 
+
+[month] varchar(2), 
+
+[month_name] varchar(20), 
+
+[quarter] varchar(1), 
+
+[quarter_name] varchar(20)) 
+
+  
+
+--Fact table 
+
+create table Air_Fact ( 
+
+id_time int foreign key (id_time) references air_time(id_time), 
+
+id_airport int foreign key (id_airport) references air_airport(id_airport), 
+
+id_transport int foreign key (id_transport) references air_transport(id_transport), 
+
+measure numeric(20)) --measure is maximum 20 digits - so from 0 to 9999999999999999999 
+
+  
+
+-- STEP 3. Insert the data into the structure created in STEP 2. 
+
+-- insert into air_airport  
+
+select distinct 
+
+rep_airp as airport_name, 
+
+'' as airport_code_1, 
+
+'' as airport_code_2, 
+
+'' as country, 
+
+'' as city 
+
+from estat_avia_paoa_filtered_en 
+
+  
+
+select * from air_airport 
+
+  
+
+update air_airport 
+
+set airport_code_1='EPGD',airport_code_2='GDN',country='Poland',city='Gdansk' 
+
+where airport_name like 'GDANSK%' 
+
+  
+
+-- insert into air_transport  
+
+select distinct 
+
+tra_cov as transport_type 
+
+from estat_avia_paoa_filtered_en 
+
+  
+
+-- insert into air_time 
+
+select distinct 
+
+time_period, 
+
+left(time_period,4) as [year], 
+
+cast(right(time_period,2) as int) as [month], 
+
+datename(MONTH,time_period+'-01') as [month_name], --datename should have an argument like 2024-11-01  
+
+case 
+
+when cast(right(time_period,2) as int)<=3 then '1' 
+
+when cast(right(time_period,2) as int)<=6 then '2' 
+
+when cast(right(time_period,2) as int)<=9 then '3' 
+
+else '4' end as [quarter], 
+
+case 
+
+when cast(right(time_period,2) as int)<=3 then '1st quarter' 
+
+when cast(right(time_period,2) as int)<=6 then '2nd quarter' 
+
+when cast(right(time_period,2) as int)<=9 then '3rd quarter' 
+
+else '4th quarter' end as [quarter_name] 
+
+from estat_avia_paoa_filtered_en 
+
+order by 1 
+
+  
+
+select * from air_time 
+
+  
+
+delete from estat_avia_paoa_filtered_en where tra_cov like '%GUADEL%' 
+
+  
+
+-- select the data from source table corresponding to the dimension tables 
+
+--insert into air_fact 
+
+select id_time, id_airport, id_transport, OBS_VALUE as measure 
+
+from estat_avia_paoa_filtered_en s,  
+
+Air_Airport a, 
+
+Air_Time t, 
+
+Air_Transport tr 
+
+where s.TIME_PERIOD=t.time_period 
+
+and a.airport_name=s.rep_airp 
+
+and tr.transport_type=s.tra_cov 
+
+  
+
+  
+
+  
+
+  
+
+SELECT * 
+
+FROM [DW_S4220].[dbo].[estat_avia_paoa_filtered_en] 
+
+ 
+
+ 
+
+------------------------------------------------------------------------------------------------------------------------ 
+
+Next create new project in visual studio community with the type being multidimensional analysis 
+
+ 
+
+Right click new data sources > new data source > do local data host and tbh just watch a video on how to access a local file 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Then process cube, always let it do that thing it asks 
