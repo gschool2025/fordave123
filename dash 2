@@ -1,0 +1,41 @@
+1. Prepare a new shared dataset for reports called Data_Production_1, containing grouping of quantitative measures by voivodship, city and month.
+
+2. Add a new blank report named Production_1. In the report, add a new Matrix control and present the data from point 1 on it.
+
+3. Prepare a new shared dataset for reports named Data_Production_2, containing groupings of quantitative measures by products, product groups, and months.
+
+4. Add a new Production_2 report with Matrix control and present the data from point 3 on it.
+
+5. Prepare the final versions of the report, ie merge the required cells and change the format to the correct one.
+
+6. Add navigation elements - they should point to report 1 and 2, respectively.
+
+7. Create English / Other language version of the reports and pass the argument contents when switching between reports.
+
+8. Sort the data for reports so that the sections are sorted alphabetically.
+
+9. Similarly as before, add a pie chart showing the structure of the amount obtained from the sale of individual products.
+
+10. Prepare a navigation panel that will reference the reports.
+
+11. Based on data source prepare a data warehouse OLAP structure.
+
+12. Connect to DW data source and prepare matrix view of aggregated data.
+
+13. Prepare the following reports in Reporting Services:
+
+a) products with average monthly sales exceeding PLN 50 throughout the period,
+
+b) products whose average annual number of units sold is less than 100 kg,
+
+c) products for which the total sales amount in PLN is the highest.
+
+
+
+14. As part of defining shared datasets, prepare exploratory queries that will allow you to:
+
+a) months in which the products sell the worst,
+
+b) products sold by regions and years,
+
+c) a list of all products that are sold for less than PLN 1,000 per month.
