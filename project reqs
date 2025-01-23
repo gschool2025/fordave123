@@ -1,0 +1,9 @@
+project reqs 
+REQUIREMENTS FOR THE FINAL PROJECT
+1. Please use open data source, e.g. from https://ec.europa.eu/eurostat/data/database or https://data.oecd.org/ - any open data source can be  used - it is not necessary to limit the data to these two data sources.
+2. When you get the data - please identify dimensions and facts - list it and try to find as many dimensions as possible (e.g., year, country etc.) (PLEASE ADD THIS LIST TO DOCUMENTATION IN A WORD FILE OR A TXT FILE).
+3. Prepare SQL scripts in SQL Server Management Studio to transform the data (ETL) into dimension and fact tables, as we did during our classes (PLEASE ADD THESE SCRIPTS TO DOCUMENTATION IN A WORD FILE OR A TXT FILE).
+4. Create a project in Visual Studio - Integration Services, Analysis Services, Reporting Services - i.e., Data sources, Data Views, Data Cubes and Dimensions. Please ensure that all necessary dimensions are visible. To do this follow the exercises from the part "Exercises with OLAP cubes" from pe.ug.edu.pl.
+5. To evaluate the project - I need document as written in part 2 and 3 + you need to present the Visual Studio part, i.e. OLAP cube.
+
+Just a brief clarification - documents in point 2 and 3 should be just some kind of notes. I don't need any essays. The most important part is 4, i.e. three projects in SSIS, SSAS and SSRS.
