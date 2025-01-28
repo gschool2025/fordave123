@@ -1,0 +1,65 @@
+Exercises with OLAP cubes
+Exercises with OLAP cubes
+Exercise 1. Create a project named DW_group_name, which should be of the Analysis Services Multidimensional and Data Mining type.
+
+Start MS Visual Studio (MS SQL Server Data Tools must be installed).
+
+Exercise 2. Create a connection to a data source.
+
+In Solution Explorer, right click on Data Sources à New Data Source.
+
+In Data Connection, enter:
+
+Server name: ...
+
+Use Windows Authentication
+
+Database Name: YourDatabaseName
+
+Name the connection Data Source - Connection.
+
+
+
+Exercise 3. Define the perspectives of data access.
+
+In Solution Explorer, right click on Data Sources à New Data Source View
+
+In Relational Data Sources, select the source you created in the first step.
+
+Change the name to Data Source - Data.
+
+
+
+Exercise 4. Create a multidimensional cube, deploy and process (for this it may be necessary to enter new project properties - Solution Explorer -> Project name -> Properties).
+
+Right button on Cubes - New Cube - Use existing tables
+
+Choose the correct dimensions and measures.
+
+Finish creating the cube and click Process. If necessary, change the server settings in the Properties option of the project.
+
+Exercise 5. On the Browse tab check the available cube browsing options.
+
+Drag and drop dimensions and measures by selecting them from the left and dropping them on the main screen.
+
+Exercise 6. Add the necessary dimensions in the cube and then re-deploy and process the cube (Deploy -> Process).
+On the Cube structure - Dimensions - tab, the dimension name à Edit
+
+Drag-and-Drop principle drag the dimensions on the right side of the cube (do not drag the primary keys as they already exist - id columns).
+
+Process the cube (right click on the cube name à Process).
+
+Exercise 7. Specify which dimensions can be hidden in the dimensions list and hide them.
+On the dimension name (table columns), right click - AttributeHierarchyVisible on False.
+
+Exercise 8. Define which dimensions are aggregate. Those that are not aggregates should have a specific default value of the so-called Default Member. Deploy this solution in a multidimensional cube.
+
+On the dimension name (table columns), right button - IsAggregatable on False, DefaultMember on any selected dimension.
+
+Exercise 9. Add two perspectives P1 and P2 - hiding some dimensions.
+
+Perspectives tab - New Perspective icon - rename - selection of dimensions.
+
+Exercise 10. Create translations for any two languages.
+
+The Translations tab - the New Translation icon - rename the dimension tables.
